@@ -1,41 +1,22 @@
-import { useState } from "react"
-
-const Card = ({title}) => {
-  return (
-    <div>
-      <h1 className="text-red-600">{title}</h1>
-    </div>
-  )
-}
-
-const Actors = ({actor}) => {
-  const [hasLiked, setHasLiked] = useState(false)
-  return (
-    <div>
-      <h1> <span className="text-blue-600 ">Actor name:</span> {actor[0].name}</h1>
-      <h1> <span className="text-blue-600">Age:</span> {actor[1].age}</h1>
-      <h1> <span className="text-blue-600">Character:</span> {actor[2].character}</h1>
-
-      <button onClick={()=> setHasLiked(true)}>
-        {hasLiked ? "Liked" : "Like"}
-      </button>
-    </div>
-  )
-}
+import React, { useState } from 'react'
+import Search from './components/search.jsx'
 
 const App = () => {
-  
-    return (
+
+  const [searchTerm, setSearchTerm] = useState('')
+  return (
+    <main>
+      <div/>
       <div>
-        <h1>this is my first app component in react</h1>
-        <Card title="Avenger"/>
-        <Card title="Endgame"/>
-        <Card title="Civil Wars"/>
-        <Actors actor={[{name: "Robert Downey Jr."}, {age: 20}, {character: "Ironman"}]} />
-        <Actors actor={[{name: "Chris Evans"}, {age: 22}, {character: "Captain America"}]} />
-        <Actors actor={[{name: "Chris Hemsworth"}, {age: 25}, {character: "Thor"}]} />
+        <header>
+          <img src="./hero.png" alt="Hero Banner" />
+          <h1>Find <span className='text-gradient'>Movies</span> You'll Enjoy Without the Hassle</h1>
+        </header>
+
+        <Search searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
       </div>
-    )
+    </main>
+  )
 }
 
 export default App
