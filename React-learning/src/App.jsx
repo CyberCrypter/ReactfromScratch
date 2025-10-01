@@ -1,7 +1,7 @@
-const Card = () => {
+const Card = ({title}) => {
   return (
     <div>
-      <h1 className="text-blue-600">This is a card component</h1>
+      <h1 className="text-blue-600">{title}</h1>
     </div>
   )
 }
@@ -10,8 +10,9 @@ const App = () => {
     return (
       <div>
         <h1>this is my first app component in react</h1>
-        <Card/>
-        <Card/>
+        <Card title="Avenger"/>
+        <Card title="Endgame"/>
+        <Card title="Civil Wars"/>
       </div>
     )
 }
