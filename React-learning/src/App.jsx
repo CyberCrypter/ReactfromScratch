@@ -1,3 +1,5 @@
+import { useState } from "react"
+
 const Card = ({title}) => {
   return (
     <div>
@@ -7,17 +9,22 @@ const Card = ({title}) => {
 }
 
 const Actors = ({actor}) => {
+  const [hasLiked, setHasLiked] = useState(false)
   return (
     <div>
-      <h1> <span className="text-blue-600">Actor name:</span> {actor[0].name}</h1>
+      <h1> <span className="text-blue-600 ">Actor name:</span> {actor[0].name}</h1>
       <h1> <span className="text-blue-600">Age:</span> {actor[1].age}</h1>
       <h1> <span className="text-blue-600">Character:</span> {actor[2].character}</h1>
-      <br />
+
+      <button onClick={()=> setHasLiked(true)}>
+        {hasLiked ? "Liked" : "Like"}
+      </button>
     </div>
   )
 }
 
 const App = () => {
+  
     return (
       <div>
         <h1>this is my first app component in react</h1>
